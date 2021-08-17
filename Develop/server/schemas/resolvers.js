@@ -11,4 +11,12 @@ const resolvers = {
           return userData;
         }
 
-    throw new AuthenticationError('You are not logged in please try again')
+    throw new AuthenticationError('You are not logged in please try again');
+},
+    users: async () => {
+        return User.find()
+            .select('-__v -password')
+    }
+
+  }
+};
